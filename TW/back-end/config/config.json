@@ -2,7 +2,7 @@
   "database": {
     "host": "localhost",
     "port": 3306,
-    "user": "root",
+    "user": "ana",
     "password": "parola123",
     "database": "proiectTW"
   }
