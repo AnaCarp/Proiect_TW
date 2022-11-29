@@ -3,8 +3,47 @@ const router = express.Router();
 const Experiences = require("../models").experience;
 const Users = require("../models").user;
 const bodyParser=require("body-parser");
+const bcrypt = require("bcrypt")
 
-// router.use(bodyParser.json())
+router.use(bodyParser.json())
+
+router.post("/register",async (req, res) => {
+	const user = req.body;
+	const {username}=req.body;
+	const hashedPassword = await bcrypt.hash(req.body.password,10);
+	try{
+		const userExistent = await Users.findOne({ where: { username }})
+		if(userExistent){
+			
+		}else{
+			res.status(400).json({ message: 'User with this username doesnt exists' });
+		}
+	}catch(e){
+
+	}
+});
+router.post("/authenticate",async (req, res) => {
+	const user = req.body;
+
+	const {username}=req.body;
+
+	const hashedPassword = await bcrypt.hash(req.body.password,10);
+	user.password=hashedPassword;
+	try{
+		const userExistent = await Users.findOne({ where: { username }})
+		if(userExistent){
+			res.status(400).json({ message: 'User already exists with this username' });
+		}
+		else{
+			await Users.create(user);
+		}
+		res.status(201).json({ message: 'User created' });
+   }catch(e){
+		   console.warn(e);
+		   res.status(500).json({ message: 'Server error!' });
+   }
+});
+
 
 router.get("/",async (req, res) => {
 	Users.findAll()
@@ -18,15 +57,6 @@ router.get("/",async (req, res) => {
 });
 
 
-router.post("/", async (req, res) =>{
-	try{
- 		await Users.create(req.body);
- 		res.status(201).json({ message: 'created' });
-	}catch(e){
-			console.warn(e);
-			res.status(500).json({ message: 'server error' });
-	}
-});
 
 router.get("/register",async (req, res) => {
 	
