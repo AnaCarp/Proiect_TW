@@ -1,9 +1,23 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const router = express.Router();
 const Experiences = require("../models").experience;
 
+router.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+router.use(bodyParser.json())
 
+router.delete("/",async (req, res) => {
+	// var {id}= req.body.id;
+	console.log(req.body)
+	var experienceDb = await Experiences.findOne({ where: {id} })
+	await experienceDb.destroy(id);
+	res.json({ message: "Experience deleted!" })
 
+});
 router.get("/",async (req, res) => {
 	const obj = {};
 	if (req.query.startPoint || req.query.vehicleType || req.query.endPoint) {
@@ -27,6 +41,24 @@ router.get("/",async (req, res) => {
 			console.error(err);
 			res.status(500).send({ message: "Server error!" });
 		});
+});
+
+router.post("/",async (req, res) => {
+	experience= req.body;
+
+	await Experiences.create(experience);
+	res.status(201).json({ message: 'Experience created!' })
+
+});
+
+router.put("/",async (req, res) => {
+
+	var experience= req.body;
+	var experienceDb = await Experiences.findOne({ where: { id:experience.id } })
+	await experienceDb.update(experience);
+	res.json({ message: "Experience updated!" });
+
+
 });
 
 
