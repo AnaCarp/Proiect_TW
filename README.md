@@ -45,7 +45,7 @@
 -> My experiences  <br>
 ![main](https://user-images.githubusercontent.com/98180213/211049909-3517c4a8-0611-4df9-8cc2-3488d5c7fca1.PNG)  <br>
 -> Add/ Modify experience  <br>
-![exp](https://user-images.githubusercontent.com/98180213/211049969-2dd3354d-12d4-45b3-b57a-8c29dfecc446.PNG) 
+![exp](https://user-images.githubusercontent.com/98180213/211049969-2dd3354d-12d4-45b3-b57a-8c29dfecc446.PNG)   <br>
 -> My account <br>
 ![my-account](https://user-images.githubusercontent.com/98180213/211050320-37048e4b-c719-4bea-b080-d30bec987a89.PNG)  <br>
 
