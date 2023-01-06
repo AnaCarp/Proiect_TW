@@ -28,13 +28,14 @@
 # Backend - Nodejs + express
 <h3><b>Database</b></h3>
   -> MySql + ORM: Sequelize
+  -> Interactiune cu front: Axios
 <h3><b>Routes</b></h3> 
    -> Home: http://localhost:3000/    <br>
    -> Login: http://localhost:3000/login   <br>
    -> Register: http://localhost:3000/register   <br>
    -> My experiences: http://localhost:3000/my-experiences   <br>
    -> My profile: http://localhost:3000/my-profile   <br>
-   
+
 # Frontend - React + primereact
   -> Home  <br>
 ![home](https://user-images.githubusercontent.com/98180213/211049766-f701dd4c-3997-41e3-b94e-5630e510b80f.PNG)  <br>
