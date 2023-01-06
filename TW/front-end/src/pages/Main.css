@@ -1,0 +1,15 @@
+.form-experience{
+    display: flex;
+    flex-direction: column;
+
+}
+.points{
+    display: flex;
+    flex-direction:row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.input-text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

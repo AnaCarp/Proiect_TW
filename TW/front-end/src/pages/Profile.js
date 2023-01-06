@@ -7,10 +7,10 @@ import { Button } from 'primereact/button';
 import { Password } from 'primereact/password';
 import { Dialog } from 'primereact/dialog';
 import { classNames } from 'primereact/utils';
-import './Register.css'
 import Axios from 'axios';
 
-
+import account from "../images/account.png";
+import './Profile.css'
 export const Profile=() =>{
    
     const navigate = useNavigate();
@@ -110,7 +110,8 @@ export const Profile=() =>{
 
     return (
         <>
-          <div className="form">
+        <div className='container-main'>
+        <div className="form-account">
             <Dialog visible={showMessage} onHide={() => setShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
                     <i className="pi pi-check-circle" style={{ fontSize: '5rem', color: 'var(--green-500)' }}></i>
                     <h5>Update Successful!</h5>
@@ -173,6 +174,10 @@ export const Profile=() =>{
                     </form>
                 </div>
             </div>
+
+            <img id="account" src={account} alt="account" />
+        </div>
+
         </>
        
     );

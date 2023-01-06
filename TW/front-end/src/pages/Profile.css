@@ -1,21 +1,24 @@
-.form h5{
+.form-account h5{
     text-align: center;
      font-size: 20px;
  }
- .form  {
+ .form-account  {
+
      display: flex;
      flex-direction: column;
-     min-width: 450px;
-     width:100px;
      border-style: solid;
      border-color: blueviolet;
-     
+     margin-left: 350px;
+     border-radius: 30px;
+     margin-top: 100px;
+     width: 470px;
+
  }
  
- .form .card .field {
+ .form-account .card .field {
     justify-content: center;
     
-     margin-bottom: 2rem;
+     margin-bottom: 1.5rem;
      margin-left: 1.5em;
      margin-right: 1.5em;
      width: 400px;
@@ -28,4 +31,19 @@
  }
  #buttonSubmit{
      margin-top: 1.5em;
+ }
+
+
+ .container-main{
+    display: flex;
+ }
+
+ #account{
+    width: 400px;
+    height:400px;
+    flex-direction: column;
+    border-radius: 30px;
+    margin-top: 200px;
+    margin-left: 100px;
+    margin-bottom: 50px;
  }

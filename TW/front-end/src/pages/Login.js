@@ -8,9 +8,10 @@ import { Checkbox } from 'primereact/checkbox';
 import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
-import './Register.css'
+import './Login.css'
 import Axios from 'axios';
 import Main from './Main'
+import loginLogo from "../images/login.png";
 
 import { useNavigate } from "react-router-dom";
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
@@ -88,57 +89,62 @@ export const Login = () => {
    
     return (
         <>
-        <div className="form">
-                <div className="card">
-                <Dialog visible={showErrorMessage} onHide={() => setShowErrorMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
-                    <i className="pi pi-ban" style={{ fontSize: '5rem', color: 'var(--red-500)' }}></i>
-                    <h5>Cannot log in!</h5>
+        <div className='main-container'>
+            <div className="form">
+                    <div className="card">
+                    <Dialog visible={showErrorMessage} onHide={() => setShowErrorMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
+                        <i className="pi pi-ban" style={{ fontSize: '5rem', color: 'var(--red-500)' }}></i>
+                        <h5>Cannot log in!</h5>
 
-                    <p style={{ lineHeight: 1.5, textIndent: '1rem' }}>
-                        Motive: <b>{error}</b> 
-                    </p>
-                </Dialog>
+                        <p style={{ lineHeight: 1.5, textIndent: '1rem' }}>
+                            Motive: <b>{error}</b> 
+                        </p>
+                    </Dialog>
 
-                <Dialog visible={showSuccesMessage} onHide={() => setSuccesShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
-                    <i className="pi pi-check-circle" style={{ fontSize: '5rem', color: 'var(--green-500)' }}></i>
-                    <h5>Login Successful!</h5>
+                    <Dialog visible={showSuccesMessage} onHide={() => setSuccesShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
+                        <i className="pi pi-check-circle" style={{ fontSize: '5rem', color: 'var(--green-500)' }}></i>
+                        <h5>Login Successful!</h5>
 
-                    <p style={{ lineHeight: 1.5, textIndent: '1rem' }}>
-                        You are now logged in <b>{formData.username}</b> 
-                    </p>
-                </Dialog>
+                        <p style={{ lineHeight: 1.5, textIndent: '1rem' }}>
+                            You are now logged in <b>{formData.username}</b> 
+                        </p>
+                    </Dialog>
 
-                    <h5>Login</h5>
-                    <form onSubmit={formik.handleSubmit} className="p-fluid">
-                        <div className="field">
-                             <span className="p-float-label">
-                                <InputText id="username" name="username" value={formik.values.username} onChange={formik.handleChange} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('username') })} />
-                                <label htmlFor="username" className={classNames({ 'p-error': isFormFieldValid('username') })}>Username</label>
-                            </span>
-                            {getFormErrorMessage('username')}
-                        </div>
+                        <h5>Login</h5>
+                        <form onSubmit={formik.handleSubmit} className="p-fluid">
+                            <div className="field">
+                                <span className="p-float-label">
+                                    <InputText id="username" name="username" value={formik.values.username} onChange={formik.handleChange} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('username') })} />
+                                    <label htmlFor="username" className={classNames({ 'p-error': isFormFieldValid('username') })}>Username</label>
+                                </span>
+                                {getFormErrorMessage('username')}
+                            </div>
 
-        
-                        <div className="field">
-                            <span className="p-float-label">
-                                <InputText id="password" name="password" value={formik.values.password} onChange={formik.handleChange} toggleMask
-                                    className={classNames({ 'p-invalid': isFormFieldValid('password') })}/>
-                                <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid('password') })}>Password</label>
-                            </span>
-                            {getFormErrorMessage('password')}
-                        </div>
-                    
+            
+                            <div className="field">
+                                <span className="p-float-label">
+                                    <Password id="password" name="password" value={formik.values.password} onChange={formik.handleChange} toggleMask
+                                        className={classNames({ 'p-invalid': isFormFieldValid('password') })}/>
+                                    <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid('password') })}>Password</label>
+                                </span>
+                                {getFormErrorMessage('password')}
+                            </div>
+                        
 
-                        <div className="field">
-                        <Button id="buttonSubmit" type="submit" label="Submit" />
-                        </div >
-                    
+                            <div className="field">
+                            <Button id="buttonSubmit" type="submit" label="Submit" />
+                            </div >
+                        
 
-                    </form>
-          
-                </div>
-  
+                        </form>
+            
+                    </div>
+    
             </div>
+
+            <img id="loginLogo" src={loginLogo} alt="login logo" />
+        </div>
+       
         </>
  
             

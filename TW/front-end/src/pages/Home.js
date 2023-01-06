@@ -6,6 +6,7 @@ import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { Dialog } from 'primereact/dialog'
 import Axios from 'axios';
+import './Home.css'
 
 export const Home=() =>{
     const [experienceList, setExperienceList] = useState([]);
@@ -28,7 +29,19 @@ export const Home=() =>{
     }
 
     function search(value){
-        let searchedExperiences = experienceList.filter (e => e.vehicleType == value)
+        let searchedExperiences=[]
+        if(experienceList.filter (e => e.author == value).length>0){
+            searchedExperiences =experienceList.filter (e => e.author == value)
+        }
+        else if(experienceList.filter (e => e.vehicleType == value).length>0){
+            searchedExperiences= experienceList.filter (e => e.vehicleType == value)
+        }
+        else if(experienceList.filter (e => e.startPoint == value).length>0){
+            searchedExperiences= experienceList.filter (e => e.startPoint == value)
+        }
+        else if(experienceList.filter (e => e.agglomeration == value).length>0){
+            searchedExperiences= experienceList.filter (e => e.agglomeration == value)
+        }
 
         setAllExperiences([...experienceList])
    
@@ -42,7 +55,11 @@ export const Home=() =>{
        
     }
     return (
-        <>
+        <div className='window'>
+        <div>
+            <h5 id='title'>Wellcome to Direct Shuttle!</h5>
+            <h5 id='search'>Search experiences by author, start point, vehicle or agglomeration!</h5>
+        </div>
         <div>
             <span className="p-input-icon-left">
                 <i className="pi pi-search" />
@@ -65,16 +82,16 @@ export const Home=() =>{
             <Column header='Observations' field='observations' />
           </DataTable>
 
-          <div>
-                <Button label="Login to post experience" onClick={login} icon="pi pi-user" />
+            <div className='buttons'>
+            <Button id='button-register' label="Create acount " onClick={signup} icon="pi pi-user-plus" />
+            <h3>Or</h3>
+            <Button id='button-login'label="Login to post experience" onClick={login} icon="pi pi-user" />
+              
             </div>
-            <div>
-                <Button label="Create acount " onClick={signup} icon="pi pi-user-plus" />
-
-            </div>
+        
           
         </div>
-        </>
+        </div>
        
     );
 }

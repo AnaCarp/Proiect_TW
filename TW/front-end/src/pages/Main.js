@@ -5,11 +5,14 @@ import { Column } from 'primereact/column'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { Dialog } from 'primereact/dialog'
+import {Calendar} from 'primereact/calendar'
+import { Rating } from 'primereact/rating';
+import { TreeSelect } from 'primereact/treeselect';
 import Navbar from '../Navbar';
 import Login from './Login';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { InputNumber } from 'primereact/inputnumber';
-
+import './Main.css'
 import Axios from 'axios';
 
 
@@ -18,6 +21,8 @@ export const Home=() =>{
     const [dialogShow, setDialogShow]=useState(false)
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
+
+
 
     let emptyExperience = {
         author: '',
@@ -37,7 +42,8 @@ export const Home=() =>{
     const[message, setMessage]=useState('')
     const[showCustomDialog, setShowCustomDialog]=useState(false)
     const[showDeleteDialog, setShowDeleteDialog]=useState(false)
-
+    const [hour, setHour]=useState("")
+    const [satisfactionLevel, setSatisfactionLevel]=useState("")
 
     useEffect(() => {
         
@@ -65,6 +71,7 @@ export const Home=() =>{
         let experienceCopy = Object.assign({}, rowData)
 
         setExperience(experienceCopy);
+        setSatisfactionLevel(experienceCopy.satisfactionLevel)
         setIsNewExperience(false);
         setIsAddDialogShown(true);
 
@@ -108,6 +115,7 @@ export const Home=() =>{
     }
     const addNew = () => {
         setExperience(emptyExperience)
+        setSatisfactionLevel(0)
         setIsNewExperience(true)
         setIsAddDialogShown(true)
    
@@ -126,6 +134,7 @@ export const Home=() =>{
       const tableFooter = <div>
       <span>
         <Button label="Add" onClick={()=>addNew()} icon="pi pi-plus" />
+      
       </span>
     </div>
 
@@ -176,23 +185,41 @@ export const Home=() =>{
           </DataTable>
 
         </div>
+
         <div>
         {
           isAddDialogShown ?
-            <Dialog   visible={isAddDialogShown} 
+            <Dialog  
+                      visible={isAddDialogShown} 
                       header={getHeaderForDialog}
                       footer={addDialogFooter}
                       onHide={hideDialog}>
-              <InputText onChange={(e) => updateProperty('author', e.target.value)} defaultValue={experience.author} name="author" placeholder="Author" />
-              <InputText onChange={(e) => updateProperty('startPoint', e.target.value)} defaultValue={experience.startPoint} name="startPoint" placeholder="Start Point" />
-              <InputText onChange={(e) => updateProperty('endPoint', e.target.value)} defaultValue={experience.endPoint} name="endPoint" placeholder="End Point" />
-              <InputText onChange={(e) => updateProperty('vehicleType', e.target.value)} defaultValue={experience.vehicleType} name="vehicleType" placeholder="Vehicle Type" />
-              <InputText onChange={(e) => updateProperty('departureHour', e.target.value)} defaultValue={experience.departureHour} name="departureHour" placeholder="Departure Hour" />
-              <InputText onChange={(e) => updateProperty('duration', e.target.value)} defaultValue={experience.duration} name="duration" placeholder="Duration" />
-              <InputText onChange={(e) => updateProperty('agglomeration', e.target.value)} defaultValue={experience.agglomeration} name="agglomeration" placeholder="Agglomeration" />
-              <InputText onChange={(e) => updateProperty('observations', e.target.value)} defaultValue={experience.observations} name="observations" placeholder="Observations" />
-              <InputText onChange={(e) => updateProperty('satisfactionLevel', e.target.value)} defaultValue={experience.satisfactionLevel} name="satisfactionLevel" placeholder="Satisfaction level" />
-            </Dialog>
+                        <div className='form-experience' >
+                            <InputText  className='input-text' onChange={(e) => updateProperty('author', e.target.value)} defaultValue={experience.author} name="author" placeholder="Author" />
+                            
+                            <div className='points'>
+                                <InputText onChange={(e) => updateProperty('startPoint', e.target.value)} defaultValue={experience.startPoint} name="startPoint" placeholder="Start Point" />
+                                <InputText onChange={(e) => updateProperty('endPoint', e.target.value)} defaultValue={experience.endPoint} name="endPoint" placeholder="End Point" />
+                            </div>
+
+                            
+                            <InputText className='input-text' onChange={(e) => updateProperty('vehicleType', e.target.value)} defaultValue={experience.vehicleType} name="vehicleType" placeholder="Vehicle Type" />
+                           
+                           <div className='points'>
+                               <Calendar onChange={(e) =>[ updateProperty('departureHour', String(e.target.value).substring(16,21)), setHour(String(e.target.value).substring(16,21)), console.log(experience.departureHour)]} defaultValue={experience.departureHour} name="departureHour" placeholder="Departure Hour" timeOnly='true' hourFormat="24"showTime='true' />
+                               <InputText onChange={(e) => updateProperty('duration', e.target.value)} defaultValue={experience.duration} name="duration" placeholder="Duration" />
+                           </div>
+                   
+                            <InputText className='input-text' onChange={(e) => updateProperty('agglomeration', e.target.value)} defaultValue={experience.agglomeration} name="agglomeration" placeholder="Agglomeration" />
+                    
+                            <InputTextarea className='input-text' onChange={(e) => updateProperty('observations', e.target.value)} defaultValue={experience.observations} name="observations" placeholder="Observations" />
+                     
+                            <h5>Satistaction level {satisfactionLevel}</h5>
+                            <Rating onChange={(e) =>[updateProperty('satisfactionLevel', e.target.value), setSatisfactionLevel(e.target.value)] } defaultValue={experience.satisfactionLevel} value={satisfactionLevel} />
+                       
+                    
+                        </div>
+                 </Dialog>
           :
             null
         
@@ -216,6 +243,7 @@ export const Home=() =>{
                 </Dialog>
 
                 
+     
 
         </div>
 
