@@ -36,17 +36,17 @@
    -> My profile: http://localhost:3000/my-profile   <br>
    
 # Frontend - React + primereact
-  -> Home
-![home](https://user-images.githubusercontent.com/98180213/211049766-f701dd4c-3997-41e3-b94e-5630e510b80f.PNG)
--> Register
-![register](https://user-images.githubusercontent.com/98180213/211049817-8077d4fc-300a-4108-871b-1f80fc307373.PNG)
--> Login
-![login](https://user-images.githubusercontent.com/98180213/211049863-d6f2d998-2710-4d51-a1b3-5b8edc80355a.PNG)
--> My experiences
-![main](https://user-images.githubusercontent.com/98180213/211049909-3517c4a8-0611-4df9-8cc2-3488d5c7fca1.PNG)
--> Add/ Modify experience
-![exp](https://user-images.githubusercontent.com/98180213/211049969-2dd3354d-12d4-45b3-b57a-8c29dfecc446.PNG)
--> My account
-![my-profile](https://user-images.githubusercontent.com/98180213/211050029-2554e2ce-8cad-427c-bf1f-d6f51145777d.PNG)
+  -> Home  <br>
+![home](https://user-images.githubusercontent.com/98180213/211049766-f701dd4c-3997-41e3-b94e-5630e510b80f.PNG)  <br>
+-> Register   <br>
+![register](https://user-images.githubusercontent.com/98180213/211049817-8077d4fc-300a-4108-871b-1f80fc307373.PNG)  <br>
+-> Login  <br>
+![login](https://user-images.githubusercontent.com/98180213/211049863-d6f2d998-2710-4d51-a1b3-5b8edc80355a.PNG)  <br>
+-> My experiences  <br>
+![main](https://user-images.githubusercontent.com/98180213/211049909-3517c4a8-0611-4df9-8cc2-3488d5c7fca1.PNG)  <br>
+-> Add/ Modify experience  <br>
+![exp](https://user-images.githubusercontent.com/98180213/211049969-2dd3354d-12d4-45b3-b57a-8c29dfecc446.PNG) 
+-> My account <br>
+![my-account](https://user-images.githubusercontent.com/98180213/211050320-37048e4b-c719-4bea-b080-d30bec987a89.PNG)  <br>
 
 
