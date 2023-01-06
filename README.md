@@ -36,7 +36,7 @@
    -> My experiences: http://localhost:3000/my-experiences   <br>
    -> My profile: http://localhost:3000/my-profile   <br>
 
-# Frontend - React + primereact
+# Frontend - React + Primereact components
   -> Home  <br>
 ![home](https://user-images.githubusercontent.com/98180213/211049766-f701dd4c-3997-41e3-b94e-5630e510b80f.PNG)  <br>
 -> Register   <br>
