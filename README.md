@@ -45,9 +45,10 @@
 ![login](https://user-images.githubusercontent.com/98180213/211049863-d6f2d998-2710-4d51-a1b3-5b8edc80355a.PNG)  <br>
 -> My experiences  <br>
 ![main](https://user-images.githubusercontent.com/98180213/211049909-3517c4a8-0611-4df9-8cc2-3488d5c7fca1.PNG)  <br>
--> Add/ Modify experience  <br>
-![exp](https://user-images.githubusercontent.com/98180213/211049969-2dd3354d-12d4-45b3-b57a-8c29dfecc446.PNG)   <br>
 -> My profile <br>
 ![my-account](https://user-images.githubusercontent.com/98180213/211050320-37048e4b-c719-4bea-b080-d30bec987a89.PNG)  <br>
+-> Add/ Modify experience  <br>
+![add](https://user-images.githubusercontent.com/98180213/211051816-793810d8-8d2b-47a1-adbb-cca194f04695.PNG)
+![edit](https://user-images.githubusercontent.com/98180213/211051832-e524ec94-010a-4373-a4e0-d113c8ac3d80.PNG)
 
 
